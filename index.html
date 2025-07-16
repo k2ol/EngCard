@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🎓 English Learning Platform</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#vocabulary" class="nav-link">Vocabulary</a></li>
+                <li><a href="#grammar" class="nav-link">Grammar</a></li>
+                <li><a href="#reading" class="nav-link">Reading</a></li>
+                <li><a href="#listening" class="nav-link">Listening</a></li>
+                <li><a href="#progress" class="nav-link">Progress</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h2>Welcome to Your English Learning Journey!</h2>
+                <p>Master English with our interactive learning modules designed for all skill levels.</p>
+                <div class="feature-cards">
+                    <div class="card" onclick="navigateToSection('vocabulary')">
+                        <div class="card-icon">📚</div>
+                        <h3>Vocabulary Builder</h3>
+                        <p>Expand your word knowledge with interactive exercises</p>
+                    </div>
+                    <div class="card" onclick="navigateToSection('grammar')">
+                        <div class="card-icon">✏️</div>
+                        <h3>Grammar Practice</h3>
+                        <p>Master English grammar rules through practice</p>
+                    </div>
+                    <div class="card" onclick="navigateToSection('reading')">
+                        <div class="card-icon">📖</div>
+                        <h3>Reading Comprehension</h3>
+                        <p>Improve reading skills with engaging texts</p>
+                    </div>
+                    <div class="card" onclick="navigateToSection('listening')">
+                        <div class="card-icon">🎧</div>
+                        <h3>Listening Practice</h3>
+                        <p>Enhance listening skills with audio exercises</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vocabulary Section -->
+        <section id="vocabulary" class="section">
+            <div class="section-header">
+                <h2>Vocabulary Builder</h2>
+                <p>Learn new words and improve your vocabulary</p>
+            </div>
+            <div class="vocabulary-container">
+                <div class="word-card">
+                    <div class="word-display">
+                        <h3 id="current-word">Click "New Word" to start</h3>
+                        <p id="word-definition">Definition will appear here</p>
+                        <button id="pronunciation-btn" class="btn-secondary">🔊 Pronunciation</button>
+                    </div>
+                    <div class="word-controls">
+                        <button id="new-word-btn" class="btn-primary">New Word</button>
+                        <button id="show-definition-btn" class="btn-secondary">Show Definition</button>
+                        <button id="mark-known-btn" class="btn-success">Mark as Known</button>
+                    </div>
+                </div>
+                <div class="vocabulary-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="words-learned">0</span>
+                        <span class="stat-label">Words Learned</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="current-streak">0</span>
+                        <span class="stat-label">Current Streak</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grammar Section -->
+        <section id="grammar" class="section">
+            <div class="section-header">
+                <h2>Grammar Practice</h2>
+                <p>Master English grammar with interactive exercises</p>
+            </div>
+            <div class="grammar-container">
+                <div class="grammar-topics">
+                    <button class="topic-btn active" data-topic="tenses">Tenses</button>
+                    <button class="topic-btn" data-topic="articles">Articles</button>
+                    <button class="topic-btn" data-topic="prepositions">Prepositions</button>
+                    <button class="topic-btn" data-topic="conditionals">Conditionals</button>
+                </div>
+                <div class="exercise-area">
+                    <div id="grammar-question">
+                        <p>Select a grammar topic to start practicing!</p>
+                    </div>
+                    <div id="grammar-options" class="options-container">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                    <div class="exercise-controls">
+                        <button id="check-answer-btn" class="btn-primary" disabled>Check Answer</button>
+                        <button id="next-question-btn" class="btn-secondary" disabled>Next Question</button>
+                    </div>
+                    <div id="feedback" class="feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading Section -->
+        <section id="reading" class="section">
+            <div class="section-header">
+                <h2>Reading Comprehension</h2>
+                <p>Improve your reading skills with engaging texts</p>
+            </div>
+            <div class="reading-container">
+                <div class="reading-levels">
+                    <button class="level-btn active" data-level="beginner">Beginner</button>
+                    <button class="level-btn" data-level="intermediate">Intermediate</button>
+                    <button class="level-btn" data-level="advanced">Advanced</button>
+                </div>
+                <div class="reading-content">
+                    <div class="text-area">
+                        <h3 id="reading-title">Select a level to start reading</h3>
+                        <div id="reading-text">
+                            <p>Choose your reading level above to begin with comprehension exercises.</p>
+                        </div>
+                    </div>
+                    <div class="comprehension-questions">
+                        <h4>Comprehension Questions</h4>
+                        <div id="questions-container">
+                            <!-- Questions will be populated by JavaScript -->
+                        </div>
+                        <button id="submit-reading-btn" class="btn-primary" disabled>Submit Answers</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Listening Section -->
+        <section id="listening" class="section">
+            <div class="section-header">
+                <h2>Listening Practice</h2>
+                <p>Enhance your listening skills with audio exercises</p>
+            </div>
+            <div class="listening-container">
+                <div class="audio-player">
+                    <div class="audio-controls">
+                        <button id="play-audio-btn" class="btn-primary">▶️ Play Audio</button>
+                        <button id="pause-audio-btn" class="btn-secondary">⏸️ Pause</button>
+                        <button id="replay-audio-btn" class="btn-secondary">🔄 Replay</button>
+                    </div>
+                    <div class="audio-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listening-exercise">
+                    <h3>Listen and Answer</h3>
+                    <p id="listening-instruction">Click play to start the listening exercise</p>
+                    <div id="listening-questions">
+                        <!-- Questions will be populated by JavaScript -->
+                    </div>
+                    <button id="submit-listening-btn" class="btn-primary" disabled>Submit Answers</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section">
+            <div class="section-header">
+                <h2>Your Progress</h2>
+                <p>Track your learning journey and achievements</p>
+            </div>
+            <div class="progress-container">
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Overall Progress</h3>
+                        <div class="circular-progress">
+                            <div class="progress-circle">
+                                <span id="overall-percentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="stat-item">
+                            <span class="stat-value" id="total-exercises">0</span>
+                            <span class="stat-name">Exercises Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="accuracy-rate">0%</span>
+                            <span class="stat-name">Accuracy Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="study-time">0</span>
+                            <span class="stat-name">Minutes Studied</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievements">
+                    <h3>Achievements</h3>
+                    <div class="badges-container">
+                        <div class="badge locked">
+                            <span class="badge-icon">🏆</span>
+                            <span class="badge-name">First Steps</span>
+                        </div>
+                        <div class="badge locked">
+                            <span class="badge-icon">📚</span>
+                            <span class="badge-name">Word Master</span>
+                        </div>
+                        <div class="badge locked">
+                            <span class="badge-icon">✏️</span>
+                            <span class="badge-name">Grammar Guru</span>
+                        </div>
+                        <div class="badge locked">
+                            <span class="badge-icon">🎯</span>
+                            <span class="badge-name">Perfect Score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 English Learning Platform. Made with ❤️ for learners worldwide.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/vocabulary.js"></script>
+    <script src="js/grammar.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/progress.js"></script>
+</body>
+</html>
